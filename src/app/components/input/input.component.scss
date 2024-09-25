@@ -1,0 +1,67 @@
+label {
+  display: block;
+  margin: 0 0 14px;
+
+  &[disabled] {
+    opacity: var(--input-disabled-opacity);
+  }
+
+  small {
+    font-size: 12px;
+    letter-spacing: 0.86px;
+  }
+}
+
+.error {
+  label {
+    color: var(--label-error-color);
+  }
+}
+
+::ng-deep {
+  .prefix {
+    position: absolute;
+    top: 57%;
+    left: 30px;
+    opacity: 0.6;
+
+    @media (max-width: 767px) {
+      left: 14px;
+    }
+  }
+
+  input,
+  .input {
+    border-radius: var(--control-border-radius);
+    border: 1px solid transparent;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: calc(var(--control-height) * 1px);
+    padding: 0 calc(var(--input-padding) * 1px);
+    color: var(--color-base);
+    background-color: var(--input-background-color);
+    outline: none;
+    font-size: 16px;
+    line-height: 1;
+
+    &[disabled] {
+      opacity: var(--input-disabled-opacity);
+    }
+
+    &::placeholder {
+      color: var(--input-placeholder-color);
+    }
+  }
+
+  .error {
+    .prefix,
+    input,
+    .input {
+      border-color: var(--warn-color);
+      color: var(--warn-color);
+    }
+  }
+}

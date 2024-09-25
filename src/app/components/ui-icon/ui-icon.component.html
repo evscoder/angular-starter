@@ -1,0 +1,7 @@
+<svg
+  [class]="'icon-' + name"
+  [attr.width]="width ? width : undefined"
+  [attr.height]="height ? height : width ? width : undefined"
+>
+  <use [attr.xlink:href]="'images/symbols.svg#' + name"></use>
+</svg>

@@ -1,0 +1,55 @@
+:root {
+  --black: #000000;
+  --blue: #00244D;
+  --gray: #808080;
+  --red: #E61D25;
+  --blue-light: #E3EAF9;
+  --white: #fff;
+
+  // Colors theme
+  --primary-color: var(--red);
+  --primary-color-hover: var(--red);
+  --secondary-color: var(--red);
+  --warn-color: var(--red);
+  --border-color: var(--blue-light);
+  --text-color: var(--black);
+
+  // Timing functions
+  --t-base: 0.2s ease-in-out;
+
+  // Fonts
+  --font-size-base: 16px;
+  --font-family-default:  'CoFo Sans', 'Open Sans', sans-serif;
+  --font-family-secondary: 'CoFo Sans', 'Open Sans', sans-serif;
+  --font-feature: 'pnum' on, 'lnum' on;
+
+  // Other
+  --base-container-width: 1290;
+  --container-gutter: 15px;
+  --container-width: calc(var(--base-container-width) * 1px + var(--container-gutter) * 2);
+
+  --control-border-radius: 20px;
+  --control-height: 60;
+
+  --input-background-color: var(--blue-light);
+  --input-placeholder-color: var(--gray);
+  --input-padding: 34;
+  --input-disabled-opacity: 0.6;
+
+  @include media('<lg') {
+
+  }
+
+  @include media('<sm-tablet') {
+
+  }
+
+  @include media('<sm') {
+
+  }
+}
+
+@media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
+	:root {
+  }
+}

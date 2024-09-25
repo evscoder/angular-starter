@@ -1,0 +1,132 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+/// Adds the error colors to the given palette.
+@function _patch-error-palette($palette) {
+  @return map.merge(
+      $palette,
+      (
+        error: (
+          0: #000000,
+          10: #410002,
+          20: #690005,
+          25: #7e0007,
+          30: #93000a,
+          35: #a80710,
+          40: #ba1a1a,
+          50: #de3730,
+          60: #ff5449,
+          70: #ff897d,
+          80: #ffb4ab,
+          90: #ffdad6,
+          95: #ffedea,
+          98: #fff8f7,
+          99: #fffbff,
+          100: #ffffff,
+        ),
+      )
+  );
+}
+
+/// Red color palette to be used as primary or tertiary palette.
+$red-palette: _patch-error-palette((
+  0: #000000,
+  10: #410000,
+  20: #690100,
+  25: #7e0100,
+  30: #930100,
+  35: #a90100,
+  40: var(--primary-color),
+  50: #ef0000,
+  60: #ff5540,
+  70: #ff8a78,
+  80: #ffb4a8,
+  90: #ffdad4,
+  95: #ffedea,
+  98: #fff8f6,
+  99: #fffbff,
+  100: #ffffff,
+  secondary: (
+    0: #000000,
+    10: #2c1512,
+    20: #442925,
+    25: #513430,
+    30: #5d3f3b,
+    35: #6a4b46,
+    40: #775651,
+    50: #926f69,
+    60: #ae8882,
+    70: #caa29c,
+    80: #e7bdb6,
+    90: #ffdad4,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #201a19,
+    20: #362f2e,
+    25: #413a38,
+    30: #4d4544,
+    35: #59504f,
+    40: #655c5b,
+    50: #7f7573,
+    60: #998e8d,
+    70: #b4a9a7,
+    80: #d0c4c2,
+    90: #ede0dd,
+    95: #fbeeec,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+    4: #130d0c,
+    6: #181211,
+    12: #251e1d,
+    17: #302828,
+    22: #3b3332,
+    24: #3f3737,
+    87: #e4d7d6,
+    92: #f3e5e4,
+    94: #f9ebe9,
+    96: #fef1ef,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #251917,
+    20: #3b2d2b,
+    25: #473836,
+    30: #534341,
+    35: #5f4f4c,
+    40: #6c5a58,
+    50: #857370,
+    60: #a08c89,
+    70: #bca7a3,
+    80: #d8c2be,
+    90: #f5ddda,
+    95: #ffedea,
+    98: #fff8f6,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+));
+
+$my-theme: mat.define-theme((
+  color: (
+    primary: $red-palette,
+  ),
+));
+
+html {
+  // Emit theme-dependent styles for common features used across multiple components.
+  @include mat.core-theme($my-theme);
+
+  // Emit styles for MatButton based on `$my-theme`. Because the configuration
+  // passed to `define-theme` omits typography, `button-theme` will not
+  // emit any typography styles.
+  @include mat.button-theme($my-theme);
+  @include mat.tabs-theme($my-theme);
+
+  // Include the theme mixins for other components you use here.
+}

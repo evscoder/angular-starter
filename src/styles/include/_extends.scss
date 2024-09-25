@@ -1,0 +1,5 @@
+.d-sm-none {
+  @include media('<sm-tablet') {
+    display: none;
+  }
+}

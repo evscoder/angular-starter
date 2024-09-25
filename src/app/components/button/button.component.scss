@@ -1,0 +1,7 @@
+::ng-deep {
+  .mat-mdc-unelevated-button {
+    width: 100%;
+    --mdc-filled-button-container-height: calc(var(--control-height) * 1px);
+    --mdc-filled-button-container-shape: var(--control-border-radius);
+  }
+}

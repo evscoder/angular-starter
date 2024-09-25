@@ -1,0 +1,18 @@
+@use '../../../styles/include/plugins' as *;
+
+.header {
+  position: relative;
+
+  &__top {
+    padding: 8px 0;
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  &__top-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
