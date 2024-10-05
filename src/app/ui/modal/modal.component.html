@@ -1,0 +1,27 @@
+<div
+  class="modal"
+  [ngClass]="{'is-active': isActive, 'is-animate': isAnimate}"
+>
+  <div class="modal__overlay" (click)="onClose()"></div>
+  <div class="modal__wrap">
+    <div class="modal__window">
+      <div class="modal__content">
+        <button class="modal__close" type="button" (click)="onClose()" >
+          <app-icon name="icon-cross"></app-icon>
+        </button>
+        <ng-container *ngIf="title">
+          <div class="modal__header">
+            <div class="modal__container">
+              <h2 class="modal__title">{{ title }}</h2>
+            </div>
+          </div>
+        </ng-container>
+        <div class="modal__body">
+          <div class="modal__container">
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

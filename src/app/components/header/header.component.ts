@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import {UiIconComponent} from "../ui-icon/ui-icon.component";
-import {IconComponent} from "../icon/icon.component";
 import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {ImageComponent} from "../../ui/image/image.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-    imports: [
-        UiIconComponent,
-        IconComponent,
-        CommonModule,
-        RouterLink
-    ],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ImageComponent
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiIconComponent } from './ui-icon.component';
+import { ImageComponent } from './image.component';
 
-describe('UiIconComponent', () => {
-  let component: UiIconComponent;
-  let fixture: ComponentFixture<UiIconComponent>;
+describe('ImageComponent', () => {
+  let component: ImageComponent;
+  let fixture: ComponentFixture<ImageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UiIconComponent]
+      imports: [ImageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiIconComponent);
+    fixture = TestBed.createComponent(ImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
