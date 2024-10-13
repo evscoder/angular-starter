@@ -1,6 +1,7 @@
 <ngx-simplebar
   class="ui-modal scrollbar-thin"
   [ngClass]="{'is-active': isActive, 'is-animate': isAnimate}"
+  [attr.class]="classes"
 >
   <div class="ui-modal__overlay" (click)="onClose()"></div>
   <div class="ui-modal__wrap">
@@ -16,10 +17,8 @@
             </div>
           </div>
         </ng-container>
-
         <div class="ui-modal__body">
           <div class="ui-modal__container">
-            <ng-container *ngTemplateOutlet="content"></ng-container>
             <ng-content></ng-content>
           </div>
         </div>

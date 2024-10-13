@@ -15,7 +15,7 @@ import { ModalComponent } from "./modal.component";
 })
 export class ModalService {
   private modalNotifier?: Subject<string>;
-  private currentModal?: ComponentRef<ModalComponent>;
+  currentModal?: ComponentRef<ModalComponent>;
 
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -23,17 +23,13 @@ export class ModalService {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  open(content: TemplateRef<any>, options?: { title?: string }) {
+  open(content: TemplateRef<any>) {
     const modalComponentFactory = this.resolver.resolveComponentFactory(ModalComponent);
     const modalComponent = modalComponentFactory.create(this.injector);
 
     modalComponent.instance.active = true;
-    modalComponent.instance.title = options?.title || 'modal';
-    modalComponent.instance.closeModal.subscribe(() => this.closeModal(modalComponent));
     modalComponent.instance.content = content;
-
     modalComponent.hostView.detectChanges();
-
     this.document.body.appendChild(modalComponent.location.nativeElement);
     this.modalNotifier = new Subject();
     this.currentModal = modalComponent;
@@ -41,8 +37,18 @@ export class ModalService {
     return this.modalNotifier?.asObservable();
   }
 
-  closeModal(modalComponent: ComponentRef<ModalComponent>): void {
-    modalComponent.instance.active = false;
-    this.modalNotifier?.complete();
+  closeModal(): void {
+    if (this.currentModal) {
+      this.currentModal.instance.onClose();
+    }
+  }
+
+  updateModal(content?: TemplateRef<any>): void {
+    if (this.currentModal) {
+      if (content) {
+        this.currentModal.instance.content = content;
+        this.currentModal.hostView.detectChanges();
+      }
+    }
   }
 }

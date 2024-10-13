@@ -1,41 +1,36 @@
 import {
-  ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
-  OnInit,
   Output,
-  SimpleChanges, TemplateRef,
+  SimpleChanges,
+  TemplateRef
 } from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {IconComponent} from "../icon/icon.component";
+import {UiIconComponent} from "../../ui-icon/ui-icon.component";
 import {SimplebarAngularModule} from "simplebar-angular";
-import {UiIconComponent} from "../ui-icon/ui-icon.component";
+import {CommonModule} from "@angular/common";
 
 @Component({
-  selector: 'app-modal',
+  selector: 'app-modal-single',
   standalone: true,
   imports: [
-    IconComponent,
-    CommonModule,
+    UiIconComponent,
     SimplebarAngularModule,
-    UiIconComponent
+    CommonModule
   ],
-  templateUrl: './modal.component.html',
-  styleUrl: './modal.component.scss'
+  templateUrl: './modal-single.component.html',
+  styleUrl: '../modal.component.scss'
 })
-export class ModalComponent implements OnInit, OnChanges {
+export class ModalSingleComponent {
   @Input() title?: string;
-  @Input() content!: TemplateRef<any>;
   @Input() active = false;
+  @Input() classes: string = '';
   @Output() closeModal = new EventEmitter<void>();
 
   isActive = false;
   isAnimate = false;
 
-  constructor(private elementRef: ElementRef, private cdr: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit() {
     this.updateModalState();
@@ -53,7 +48,6 @@ export class ModalComponent implements OnInit, OnChanges {
 
       setTimeout(() => {
         this.isAnimate = true;
-        this.cdr.detectChanges();
       }, 310);
     }
   }
@@ -61,13 +55,12 @@ export class ModalComponent implements OnInit, OnChanges {
   onClose() {
     this.active = false;
     this.isAnimate = false;
-    this.cdr.detectChanges();
 
     setTimeout(() => {
       this.isActive = false;
       this.closeModal.emit();
-      this.cdr.detectChanges();
-      this.elementRef.nativeElement.remove();
+
+      console.log('close');
     }, 310)
   }
 }

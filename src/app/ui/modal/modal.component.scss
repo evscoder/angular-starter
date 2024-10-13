@@ -1,9 +1,12 @@
+@use '../../../styles/include/plugins' as *;
+
 .ui-modal {
   --modal-container-gutter: clamp(16px, 4.2vw, 32px);
   --modal-width: 640px;
   --modal-background-color: var(--white);
   --modal-body-p: 15px 0 30px;
   --box-shadow: 0 4px 8px rgba(169, 194, 209, 0.25), 0 16px 32px rgba(169, 194, 209, 0.25);
+  --border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +19,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  color: var(--text-color);
 
   &[data-simplebar] {
     overflow: initial;
@@ -131,7 +135,7 @@
     background-color: var(--modal-background-color);
     margin: 10px auto;
     max-width: calc(100% - 20px);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
   }
 
@@ -144,14 +148,8 @@
     padding-left: var(--modal-container-gutter);
   }
 
-  &__header {
-    padding: 60px 0 0;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
   &__title {
-    margin: 0 0 2rem;
+    margin: 0 0 16px;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.5;
