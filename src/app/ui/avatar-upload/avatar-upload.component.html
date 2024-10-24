@@ -1,0 +1,21 @@
+<div
+  class="avatar-upload"
+  appDragDrop
+  (fileDropped)="onFileDropped($event)"
+  (click)="fileInput.click()"
+  [ngClass]="{'active': avatarSrc}"
+>
+  <input
+    #fileInput
+    type="file"
+    class="avatar-upload__input"
+    (change)="onFileSelected($event)"
+    accept="image/*"
+  />
+  <div class="avatar-upload__content">
+    <div class="avatar-placeholder">
+      <img *ngIf="avatarSrc" [src]="avatarSrc" alt="avatar" />
+      <p *ngIf="!avatarSrc">Выберите или перетащите аватар</p>
+    </div>
+  </div>
+</div>

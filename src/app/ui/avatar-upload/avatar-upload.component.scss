@@ -1,0 +1,57 @@
+.avatar-upload {
+  width: 160px;
+  height: 160px;
+  padding: 12px;
+  border: 1px dashed var(--gray5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border-radius: 10px;
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    text-align: center;
+  }
+}
+
+.avatar-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--gray6);
+
+  &::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    transform: rotate(15deg);
+    border: 2px dashed var(--border-color);
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 4px 4px rgba(21, 50, 112, 0.15));
+  }
+
+  .avatar-upload.active & {
+    &::before {
+      display: none;
+    }
+  }
+
+  img {
+    left: -2px;
+    top: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    max-width: none;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 10px;
+  }
+}

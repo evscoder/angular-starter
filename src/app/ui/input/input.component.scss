@@ -2,10 +2,6 @@ label {
   display: block;
   margin: 0 0 14px;
 
-  &[disabled] {
-    opacity: var(--input-disabled-opacity);
-  }
-
   small {
     font-size: 12px;
     letter-spacing: 0.86px;
@@ -14,11 +10,15 @@ label {
 
 .error {
   label {
-    color: var(--label-error-color);
+    color: var(--red-color);
   }
 }
 
 ::ng-deep {
+  .form-group {
+    margin-bottom: 24px;
+  }
+
   .prefix {
     position: absolute;
     top: 57%;
@@ -30,22 +30,15 @@ label {
     }
   }
 
-  input,
   .input {
-    border-radius: var(--control-border-radius);
-    border: 1px solid transparent;
-  }
-
-  input {
     display: block;
-    width: 100%;
-    height: calc(var(--control-height) * 1px);
-    padding: 0 calc(var(--input-padding) * 1px);
+    border-radius: var(--control-border-radius);
+    border: 1px solid var(--control-border-color);
     color: var(--color-base);
     background-color: var(--input-background-color);
     outline: none;
     font-size: 16px;
-    line-height: 1;
+    width: 100%;
 
     &[disabled] {
       opacity: var(--input-disabled-opacity);
@@ -56,12 +49,20 @@ label {
     }
   }
 
+  input {
+    height: calc(var(--control-height) * 1px);
+    padding: 0 calc(var(--input-padding) * 1px);
+  }
+
+  textarea {
+    padding: 20px calc(var(--input-padding) * 1px);
+  }
+
   .error {
     .prefix,
-    input,
     .input {
-      border-color: var(--warn-color);
-      color: var(--warn-color);
+      border-color: var(--red-color);
+      color: var(--red-color);
     }
   }
 }

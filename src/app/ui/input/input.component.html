@@ -1,6 +1,5 @@
 <div class="input-container" [ngClass]="{error: hasError}">
   <label *ngIf="label">{{ label }}</label>
   <ng-content select=".prefix"></ng-content>
-  <ng-content select="input"></ng-content>
   <ng-content select=".input"></ng-content>
 </div>
