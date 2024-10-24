@@ -1,17 +1,16 @@
-.mat-typography {
-  h1,
-  .h1,
-  h2,
-  .h2,
-  h3,
-  .h3,
-  h4,
-  .h4,
-  h5,
-  .h5 {
-    font-family: var(--font-family-secondary);
-    line-height: initial;
-  }
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: var(--font-family-secondary);
+  line-height: initial;
+  margin-bottom: 1.5rem;
 }
 
 a {
