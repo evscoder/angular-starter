@@ -122,19 +122,19 @@ html {
   @include mat.core();
 
   // Emit theme-dependent styles for common features used across multiple components.
-  @include mat.core-theme($my-theme);
+  @include mat.all-component-themes($my-theme);
 
-  // Emit styles for MatButton based on `$my-theme`. Because the configuration
-  // passed to `define-theme` omits typography, `button-theme` will not
-  // emit any typography styles.
-  @include mat.button-theme($my-theme);
-  @include mat.tabs-theme($my-theme);
-  @include mat.tooltip-theme($my-theme);
-
-  // Include the theme mixins for other components you use here.
+  .cdk-overlay-container {
+    z-index: 1051;
+  }
 }
 
-.tooltip-theme {
+:root {
+  --mat-datepicker-calendar-container-background-color: var(--white);
+  --mat-select-panel-background-color: var(--white);
+}
+
+.tooltip-popover {
   .mdc-tooltip__surface {
     background-color: var(--white);
     color: var(--text-color);

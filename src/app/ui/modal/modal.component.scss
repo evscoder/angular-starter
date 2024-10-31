@@ -2,7 +2,7 @@
 
 .ui-modal {
   --modal-container-gutter: clamp(16px, 4.2vw, 32px);
-  --modal-width: 640px;
+  --modal-width: 720px;
   --modal-background-color: var(--white);
   --modal-body-p: 15px 0 30px;
   --box-shadow: 0 4px 8px rgba(169, 194, 209, 0.25), 0 16px 32px rgba(169, 194, 209, 0.25);
@@ -20,17 +20,22 @@
   opacity: 0;
   pointer-events: none;
   color: var(--text-color);
+  overflow: initial;
 
-  &[data-simplebar] {
-    overflow: initial;
+  &--fullscreen {
+    --modal-container-gutter: var(--container-gutter);
+    --modal-width: 100%;
+    --modal-background-color: var(--white);
+    --modal-body-p: 0;
+    --border-radius: 0;
+  }
 
-    > .simplebar-wrapper > .simplebar-mask > .simplebar-offset > .simplebar-content-wrapper {
-      display: flex;
+  ::ng-deep > .simplebar-wrapper > .simplebar-mask > .simplebar-offset > .simplebar-content-wrapper {
+    display: flex;
 
-      > .simplebar-content {
-        flex-grow: 1;
-        margin: auto;
-      }
+    > .simplebar-content {
+      flex-grow: 1;
+      margin: auto;
     }
   }
 
@@ -131,12 +136,24 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    pointer-events: all;
     background-color: var(--modal-background-color);
     margin: 10px auto;
     max-width: calc(100% - 20px);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    .ui-modal.is-animate & {
+      pointer-events: all;
+    }
+
+    .ui-modal--fullscreen & {
+      flex-grow: 1;
+      margin: 0;
+      max-width: none;
+      width: 100%;
+      align-items: center;
+      min-height: 100vh;
+    }
   }
 
   &__content-wrap {
@@ -146,11 +163,20 @@
   &__container {
     padding-right: var(--modal-container-gutter);
     padding-left: var(--modal-container-gutter);
+
+    .ui-modal--fullscreen & {
+      display: flex;
+      justify-content: center;
+    }
+
+    .ui-modal--fullscreen .ui-modal__body & {
+      flex-grow: 1;
+    }
   }
 
   &__title {
     margin: 0 0 16px;
-    font-size: 1.6rem;
+    font-size: 24px;
     font-weight: 600;
     line-height: 1.5;
     text-align: center;
@@ -163,9 +189,11 @@
     flex-direction: column;
     width: 100%;
     padding: var(--modal-body-p);
+    overflow-x: hidden;
 
-    &[data-simplebar] {
-      overflow-x: hidden;
+    .ui-modal--fullscreen & {
+      display: flex;
+      flex-grow: 1;
     }
   }
 }
