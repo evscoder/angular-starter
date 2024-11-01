@@ -36,6 +36,9 @@
   --input-padding: 34;
   --input-disabled-opacity: 0.6;
 
+  --backdrop-color: var(--black);
+  --backdrop-opacity: 0.4;
+
   @include media('<lg') {
 
   }
