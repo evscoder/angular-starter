@@ -2,6 +2,7 @@ app-root,
 app-root > router-outlet + *,
 app-root > router-outlet + * > *,
 .page-wrapper,
+.page-wrapper > router-outlet + *,
 .page-content,
 .page-content > * {
   flex-grow: 1;
@@ -9,7 +10,8 @@ app-root > router-outlet + * > *,
   flex-direction: column;
 }
 
-.page-wrapper {
+.page-wrapper,
+.page-content {
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
