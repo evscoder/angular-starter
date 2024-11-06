@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {HeaderComponent} from "../components/header/header.component";
 import {MatDialogContainer} from "@angular/material/dialog";
 import {MatExpansionPanelTitle} from "@angular/material/expansion";
 import {MatToolbar} from "@angular/material/toolbar";
-import {PageLayoutComponent} from "../components/page-layout/page-layout.component";
+import {PageLayoutComponent} from "../../components/page-layout/page-layout.component";
+import {HeaderComponent} from "../../components/header/header.component";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +13,7 @@ import {PageLayoutComponent} from "../components/page-layout/page-layout.compone
         MatDialogContainer,
         MatExpansionPanelTitle,
         MatToolbar,
+        PageLayoutComponent,
         PageLayoutComponent
     ],
   templateUrl: './home.component.html',
