@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {DragDropDirective} from "../../directives/drag-drop.directive";
 import {CommonModule} from "@angular/common";
+import {DragDropDirective} from "../../directives/drag-drop/drag-drop.directive";
 
 @Component({
   selector: 'app-avatar-upload',

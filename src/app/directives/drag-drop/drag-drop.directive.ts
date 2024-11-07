@@ -5,6 +5,7 @@ import {Directive, EventEmitter, HostBinding, HostListener, Output} from '@angul
   standalone: true
 })
 export class DragDropDirective {
+
   @Output() fileDropped = new EventEmitter<File>();
   @HostBinding('class.fileover') fileOver: boolean = false;
 
