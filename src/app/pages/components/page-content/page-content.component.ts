@@ -1,13 +1,12 @@
 import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+
 @Component({
   selector: 'app-page-content',
-  standalone: true,
-  imports: [
-  ],
   templateUrl: './page-content.component.html',
   styleUrl: './page-content.component.scss'
 })
+
 export class PageContentComponent implements AfterViewInit {
   @ViewChild('pageContent', { static: true }) pageContent!: ElementRef;
 

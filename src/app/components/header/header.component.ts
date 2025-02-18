@@ -5,12 +5,6 @@ import {ImageComponent} from "../../ui/image/image.component";
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    ImageComponent
-  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
