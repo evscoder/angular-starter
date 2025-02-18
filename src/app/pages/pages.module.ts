@@ -6,13 +6,15 @@ import {PageLayoutComponent} from "./components/page-layout/page-layout.componen
 import {SharedModule} from "../module/shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {PagesRoutingModule} from "./pages-routing.module";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
     PageContentComponent,
     HeaderComponent,
     FooterComponent,
-    PageLayoutComponent
+    PageLayoutComponent,
+    HomeComponent
   ],
   imports: [
     SharedModule,
