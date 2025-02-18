@@ -7,6 +7,7 @@ import {SharedModule} from "../module/shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {PagesRoutingModule} from "./pages-routing.module";
 import {HomeComponent} from "./home/home.component";
+import {HomeModule} from "./home/home.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {HomeComponent} from "./home/home.component";
   imports: [
     SharedModule,
     RouterModule,
+    HomeModule,
     PagesRoutingModule
   ],
   exports: [
