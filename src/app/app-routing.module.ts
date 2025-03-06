@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from "./pages/home/home.component";
+import {PageLayoutComponent} from "./pages/components/page-layout/page-layout.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-  },
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+        component: HomeComponent,
+      }
+    ]
+  }
 ];
 
 @NgModule({
