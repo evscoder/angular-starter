@@ -7,11 +7,6 @@ app-root > router-outlet + * > *,
   display: flex;
   flex-direction: column;
 }
-.page-wrapper,
-.page-content {
-  opacity: 0;
-  transition: opacity 0.25s ease-in-out;
-}
 
 .container {
   width: 100%;

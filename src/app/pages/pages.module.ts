@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import {PageContentComponent} from "./components/page-content/page-content.component";
 import {HeaderComponent} from "../components/header/header.component";
 import {FooterComponent} from "../components/footer/footer.component";
-import {PageLayoutComponent} from "./components/page-layout/page-layout.component";
 import {SharedModule} from "../module/shared/shared.module";
 import {RouterModule} from "@angular/router";
 
@@ -10,8 +9,7 @@ import {RouterModule} from "@angular/router";
   declarations: [
     PageContentComponent,
     HeaderComponent,
-    FooterComponent,
-    PageLayoutComponent
+    FooterComponent
   ],
   imports: [
     SharedModule,
@@ -20,8 +18,7 @@ import {RouterModule} from "@angular/router";
   exports: [
     PageContentComponent,
     HeaderComponent,
-    FooterComponent,
-    PageLayoutComponent
+    FooterComponent
   ],
 })
 export class PagesModule { }
