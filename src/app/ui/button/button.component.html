@@ -1,3 +1,6 @@
-<div class="button-container">
+<button [type]="type"
+        class="button {{ color ? 'button--' + color : '' }} {{ size ? 'button--' + size : '' }}"
+        [class.button--square]="square"
+        [title]="title">
   <ng-content></ng-content>
-</div>
+</button>

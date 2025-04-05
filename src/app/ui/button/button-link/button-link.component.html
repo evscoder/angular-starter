@@ -1,0 +1,7 @@
+<a [routerLink]="href"
+   role="button"
+   class="button {{ color ? 'button--' + color : '' }} {{ size ? 'button--' + size : '' }}"
+   [class.button--square]="square"
+   [title]="title">
+  <ng-content></ng-content>
+</a>

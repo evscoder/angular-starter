@@ -1,27 +1,18 @@
 import {
   Component,
   EventEmitter,
-  Input,
+  Input, OnChanges, OnInit,
   Output,
   SimpleChanges,
   TemplateRef
 } from '@angular/core';
-import {UiIconComponent} from "../../ui-icon/ui-icon.component";
-import {SimplebarAngularModule} from "simplebar-angular";
-import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-modal-single',
-  standalone: true,
-  imports: [
-    UiIconComponent,
-    SimplebarAngularModule,
-    CommonModule
-  ],
   templateUrl: './modal-single.component.html',
   styleUrl: '../modal.component.scss'
 })
-export class ModalSingleComponent {
+export class ModalSingleComponent implements OnInit, OnChanges {
   @Input() title?: string;
   @Input() active = false;
   @Input() classes: string = '';

@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import {provideNgxMask} from "ngx-mask";
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
+import {SharedModule} from "./module/shared/shared.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -12,7 +15,11 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     RouterModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [ AppComponent ],
